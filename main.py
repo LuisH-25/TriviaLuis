@@ -1,8 +1,29 @@
-#Variables del codigo
-puntaje = 0;
+# Librerias
+import random  # Importamos la librería random
+import time  
 
+# Constantes
+BLACK = '\033[30m'
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m'
+WHITE = '\033[37m'
+RESET = '\033[39m'
+
+# Variables
+puntaje = random.randint(0, 10)
+
+contador = 0;
+for contador in range(0,3):
+  print(".")
+  time.sleep(1) # Espera 2 segundos antes de continuar.
+  
+  
 # Mensaje de bievenida
-print ("Bienvenido a mi trivia sobre la pandemia")
+print (CYAN + "Bienvenido a mi trivia sobre la pandemia" + RESET)
 print ("Pondremos a prueba tus conocimientos")
 
 nombre = input("Ingresa tu nombre: ")
@@ -28,8 +49,8 @@ if (respuesta_1 == "a"):
   print ("Muy bien", nombre, "!")
   puntaje = puntaje + 1
 elif (respuesta_1 == "x"):
-  print ("Wuau, encontraste un código oculto", nombre, "!, se te dará un punto adicional")
-  puntaje = puntaje + 1
+  print ("Wuau, encontraste un código oculto", nombre, "!, se te dará puntos adicional")
+  puntaje = puntaje * 5
 else:
   print ("Incorrecto! ")
   print ("La respuesta correcta es : a) China")
