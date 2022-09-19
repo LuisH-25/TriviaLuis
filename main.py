@@ -83,43 +83,50 @@ if(conforme == 'si'):
     
   print ("Tu puntaje inicial es: " + str(puntaje))
 time.sleep(1)
-print ("Comenzamos en: ")
-for contador in range (5,0,-1):
-  print(contador)
-  time.sleep(1)  # Espera 1 seg
 
-cantidad_preguntas = len(preguntas)
-for x in range (1,cantidad_preguntas):
-  time.sleep(1)
-  print(CYAN + "PREGUNTA " + str(x) + ":\n" + RESET)
-  print(YELLOW+str(x) + ") " + preguntas[x] + RESET)
-  for y in range (0,cantidad_preguntas-1):
-    print(alternativas[x][y])
-  respuestas[x] = input("\nTu respuesta es: ").lower()
-  while respuestas[x] not in ("a", "b", "c", "d"):
-    respuestas[x] = input(RED + "Debes responder a, b, c o d. Ingresa nuevamente tu respuesta: " + RESET)
-    puntaje = puntaje - 1
+conforme = "si"
+while conforme == "si":
   
-  if (respuestas_correctas[x] == respuestas[x]):
-    print (GREEN + "Muy bien " + nombre + " !" + RESET)
-    puntaje = puntaje + 1
-  else:
-    print (RED + "Incorrecto! " + RESET)
-    print (GREEN + "La respuesta correcta es : "+ respuestas_correctas[x] + RESET)
-    puntaje = puntaje - 1
-  ##print ("Tu puntaje es: ", puntaje)
-
-  print("\n")
-  time.sleep(1)  # Espera 1 seg
+  print ("Comenzamos en: ")
+  for contador in range (5,0,-1):
+    print(contador)
+    time.sleep(1)  # Espera 1 seg
   
-condicion= input("\n¿Deseas ver tus respuestas?").lower()
-while condicion not in ("si", "no"):
-  condicion = input("Debes responder si ó no. Ingresa nuevamente tu respuesta: ").lower()
-
-if condicion == "si":
-  for z in range (1,len(respuestas)):
-    print("PREGUNTA " + str(z) + ": " + respuestas[z])
-
+  cantidad_preguntas = len(preguntas)
+  for x in range (1,cantidad_preguntas):
+    time.sleep(1)
+    print(CYAN + "PREGUNTA " + str(x) + ":\n" + RESET)
+    print(YELLOW+str(x) + ") " + preguntas[x] + RESET)
+    for y in range (0,cantidad_preguntas-1):
+      print(alternativas[x][y])
+    respuestas[x] = input("\nTu respuesta es: ").lower()
+    while respuestas[x] not in ("a", "b", "c", "d"):
+      respuestas[x] = input(RED + "Debes responder a, b, c o d. Ingresa nuevamente tu respuesta: " + RESET)
+      puntaje = puntaje - 1
+    
+    if (respuestas_correctas[x] == respuestas[x]):
+      print (GREEN + "Muy bien " + nombre + " !" + RESET)
+      puntaje = puntaje + 1
+    else:
+      print (RED + "Incorrecto! " + RESET)
+      print (GREEN + "La respuesta correcta es : "+ respuestas_correctas[x] + RESET)
+      puntaje = puntaje - 1
+    ##print ("Tu puntaje es: ", puntaje)
+  
+    print("\n")
+    time.sleep(1)  # Espera 1 seg
+    
+  condicion= input("\n¿Deseas ver tus respuestas?").lower()
+  while condicion not in ("si", "no"):
+    condicion = input("Debes responder si ó no. Ingresa nuevamente tu respuesta: ").lower()
+  
+  if condicion == "si":
+    for z in range (1,len(respuestas)):
+      print("PREGUNTA " + str(z) + ": " + respuestas[z])
+  condicion= input("\n¿Deseas volver a realizar la trivia?").lower()
+  while condicion not in ("si", "no"):
+    condicion = input(RED +"Debes responder si ó no. Ingresa nuevamente tu respuesta: " + RESET).lower()
+  
 for contador in range(0,5,1):
   print(".")
   time.sleep(1) # Espera 2 segundos antes de continuar.
