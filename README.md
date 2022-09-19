@@ -1,7 +1,7 @@
 # trivia covid 😷
 [Demo](https://replit.com/@LUIS-ENRIQUE129/TriviaLuis)
 
-## pregunta 1: 
+Trivia Bicentenario con respecto a temas relacionados con el covid.
 
 # Licencia
 MIT
