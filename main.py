@@ -15,7 +15,7 @@ RESET = '\033[39m'
 time.sleep(1)  # Espera de 1 segundo
 
 # Variables
-puntaje = 0
+puntaje = random.randint(1, 5)
 preguntas = ["","¿Donde se inicio el covid?","¿Cuantas dosis deberias tener si tienes más de 18 años?","¿Que es el SARS-CoV-2 ?","¿En que año se confirmo el paciente cero en el Perú?"]
 alternativas = [["","","",""],["a) China", "b) EE.UU", "c) Rusia","d) Perú"],["a) Ninguna", "b) 2", "c) 3","d) 4"],["a) Proteina", "b) Bacteria", "c) Virus","d) Ninguna de las anteriores"],["a) 2021", "b) 2019", "c) 2020","d) 2022"]]
 respuestas = ["","","","",""]
@@ -62,25 +62,29 @@ puntaje_inicial = random.randint(0, int(edad))
 
 print(GREEN + "Nota:", nombre, ", obtendras puntos a memida que respondas correctamente "+ RESET)
 conforme = input(YELLOW + "Obtuviste un puntaje inicial que esta entre 0 y "+edad+", quieres adivinar tu puntaje (si aciertas tendras puntos extras) Responda con 'si' o  'no'" + RESET)
+if conforme == "x":
+  puntaje = puntaje +20
+  print("x se considera como si, y se te añadirá puntos extras por ser una persona con mucha suerte")
+  
 while conforme not in ("si", "no"):
   conforme = input(RED + "\nResponda con 'si' o  'no' por favor: " + RESET).lower()
   time.sleep(1)
 if(conforme == 'si'):
-  puntaje = input(RED + "\n¿Cual es su puntaje inicial?" + RESET)
+  puntaje1 = input(RED + "\n¿Cual es su puntaje inicial?" + RESET)
   time.sleep(1)
-  while puntaje.isnumeric() == False:
-    puntaje = input(RED+"\nIngrese un número "+RESET)
+  while puntaje1.isnumeric() == False:
+    puntaje1 = input(RED+"\nIngrese un número "+RESET)
     time.sleep(1)
-  if(puntaje== puntaje_inicial):
+  if(puntaje1== puntaje_inicial):
     print(GREEN + "ACERTASTE"+ RESET)
-    puntaje= puntaje *2
+    puntaje= puntaje_inicial + puntaje *2
   else:
     print ("El número a adivinar era: " + str(puntaje_inicial))
     
-  print ("Tu puntaje inicial es: " + puntaje)
+  print ("Tu puntaje inicial es: " + str(puntaje))
 time.sleep(1)
 print ("Comenzamos en: ")
-for contador in range (3,0,-1):
+for contador in range (5,0,-1):
   print(contador)
   time.sleep(1)  # Espera 1 seg
 
